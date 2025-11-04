@@ -1,0 +1,218 @@
+/* Variables de Color */
+:root {
+    --color-bg-dark: #1e1e1e;
+    --color-panel: #2d2d2d;
+    --color-text: #e0e0e0;
+    --color-primary: #007bff; /* Azul para botones principales */
+    --color-success: #28a745; /* Verde para éxito */
+    --color-warning: #ffc107; /* Amarillo para advertencia */
+    --color-danger: #dc3545; /* Rojo para fallo/pendiente */
+}
+
+/* Estilos Generales y Tipografía */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--color-bg-dark);
+    color: var(--color-text);
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+header {
+    background-color: var(--color-panel);
+    padding: 20px 30px;
+    text-align: center;
+    border-bottom: 2px solid var(--color-primary);
+}
+
+header h1 {
+    margin: 0;
+    color: var(--color-primary);
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Estilos de Panel */
+.panel {
+    background-color: var(--color-panel);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    flex: 1 1 300px; /* Base para responsiveness */
+    min-width: 300px;
+}
+
+h2 {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 10px;
+    margin-top: 0;
+}
+
+/* Formularios y Botones */
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="url"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #444;
+    border-radius: 4px;
+    background-color: #383838;
+    color: var(--color-text);
+    box-sizing: border-box;
+}
+
+button {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+    width: 100%;
+    margin-top: 10px;
+}
+
+#start-button {
+    background-color: var(--color-primary);
+    color: white;
+}
+
+#start-button:hover {
+    background-color: #0056b3;
+}
+
+/* Estilos de Logs */
+.log-console {
+    background-color: #000000;
+    color: #00ff00; /* Color de terminal para los logs */
+    height: 300px;
+    overflow-y: scroll;
+    padding: 10px;
+    border-radius: 4px;
+    font-family: 'Consolas', 'Courier New', monospace;
+    white-space: pre-wrap;
+    border: 1px solid #444;
+}
+
+/* Estilos de Toggle (Oráculo) */
+.oracle-panel {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.oracle-panel p {
+    font-size: 1.1em;
+}
+
+#toggle-status {
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 4px;
+    margin-right: 15px;
+    background-color: var(--color-danger); /* Estado inicial */
+}
+
+/* Toggle Switch (CSS puro) */
+.toggle-container {
+    display: flex;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--color-danger); /* Rojo (PENDIENTE) */
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+}
+
+input:checked + .slider {
+    background-color: var(--color-success); /* Verde (VERIFICADO) */
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+/* Botones de Acción Secundaria */
+.action-button {
+    background-color: var(--color-warning);
+    color: var(--color-bg-dark);
+}
+.fail-button {
+    background-color: var(--color-danger);
+    color: white;
+}
+.fail-button:hover {
+    background-color: #a71d2a;
+}
+
+/* --- ESTILOS AGREGADOS PARA EL BOTÓN DE CANCELACIÓN --- */
+
+.cancel-btn {
+    background-color: #8B0000; /* Rojo oscuro para la acción final */
+    color: white;
+    display: none; /* Oculto por defecto, controlado por demo.js */
+    margin-top: 15px;
+}
+
+.cancel-btn:hover {
+    background-color: #5d0000;
+}

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PEPS-View | Demostración de Ciclo de Agente</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header>
+        <h1>PEPS-View 🤖</h1>
+        <p>Visualización del Ciclo de Vida del Agente PEPS-Pay</p>
+    </header>
+
+    <main class="container">
+
+        <section id="input-panel" class="panel request-panel">
+            <h2>1. 🎯 Solicitud de Contrato (Paso 1)</h2>
+            <form id="request-form">
+                <div class="form-group">
+                    <label for="monto">Monto (USD):</label>
+                    <input type="number" id="monto" value="1000" min="1" required>
+                </div>
+                <div class="form-group">
+                    <label for="proveedor">Proveedor (Wallet ARC):</label>
+                    <input type="text" id="proveedor" value="0x123...ARC" required>
+                </div>
+                <div class="form-group">
+                    <label for="oracle-url">URL del Oráculo:</label>
+                    <input type="url" id="oracle-url" value="https://api.oracle.com/v1/peps" required>
+                </div>
+                <button type="submit" id="start-button">
+                    INICIAR CONTRATO (Paso 1 y 2)
+                </button>
+            </form>
+        </section>
+
+        <section id="oracle-panel" class="panel oracle-panel">
+            <h2>2. ⚖️ Simulador de Oráculo RWA (Verificación)</h2>
+            <p>Contrato Activo ID: <span id="contract-id">N/A</span></p>
+            <div class="toggle-container">
+                <span class="toggle-label" id="toggle-status">PENDIENTE</span>
+                <label class="switch">
+                    <input type="checkbox" id="oracle-toggle">
+                    <span class="slider round"></span>
+                </label>
+            </div>
+            <button id="fail-network-button" class="action-button fail-button">
+                🚨 Simular FALLA DE RED
+            </button>
+            
+            <button id="cancel-button" class="action-button cancel-btn">
+                ❌ CANCELAR CONTRATO y Reembolsar
+            </button>
+            
+        </section>
+
+        <section id="logs-panel" class="panel logs-panel">
+            <h2>3. 📜 Logs de Ejecución del Agente (Liquidación)</h2>
+            <div id="log-console" class="log-console">
+                > Sistema PEPS-View inicializado. Esperando solicitud...
+            </div>
+        </section>
+
+    </main>
+
+    <script src="demo.js"></script>
+</body>
+</html>
